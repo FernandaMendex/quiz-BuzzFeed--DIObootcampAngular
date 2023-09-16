@@ -3,10 +3,14 @@
     <img src="assets/imgs/logo.png" alt="" srcset="">
     <h3>{{ title }}</h3>
   </div>
-  <div class="quiz-question">
+  <div
+  *ngIf=!finished
+  class="quiz-question">
     <h3>{{ question.question }}</h3>
   </div>
-  <div class="quiz-options">
+  <div
+  *ngIf=!finished
+  class="quiz-options">
     <button
     *ngFor="let option of question.options"
     (click)="playerChoose(option.alias)"
@@ -15,6 +19,6 @@
     </button>
   </div>
   <div *ngIf=finished class="quiz-result">
-    <p>Resposta</p>
+    <p>{{ answerSelected }}</p>
   </div>
 </div>
